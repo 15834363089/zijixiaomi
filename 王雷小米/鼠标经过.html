@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+       /*选项卡*/
+        .box{
+            width: 600px;
+            height: 500px;
+            border:1px solid black;
+        }
+        .top{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            background: yellow;
+        }
+        .top .type{
+            width: 150px;
+            height: 50px;
+            font-size: 18px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .active{
+            background: #4CB6FD;
+        }
+        .bottom{
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+        }
+        .bottom .inner{
+            width: 600px;
+            height: 450px;
+            background: yellowgreen;
+            color:#fff;
+            font-size:30px;
+            text-align: center;
+            line-height: 450px;
+        }
+
+
+        /*轮播效果*/
+
+
+    </style>
+</head>
+<body>
+<!--轮播效果-->
+
+
+
+
+<!--选项卡效果-->
+<div class="box">
+    <div class="top">
+        <div class="type active">热门</div>
+        <div class="type">家电</div>
+        <div class="type">电脑</div>
+        <div class="type">电视</div>
+    </div>
+    <div class="bottom">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner">3</div>
+        <div class="inner">4</div>
+    </div>
+</div>
+</body>
+<script>
+//    轮播开始
+
+//    选项卡
+    let types=document.querySelectorAll(".type");
+    console.log(types);
+    let inners=document.querySelectorAll(".inner");
+    console.log(inners);
+    types.forEach(function (ele,index) {
+        ele.onmouseover=function(){
+            for(var i=0;i<types.length;i++){
+                types[i].classList.remove('active');
+                inners[i].style.display="none";
+            }
+            ele.classList.add('active');
+            inners[index].style.display="block";
+        }
+    })
+
+</script>
+</html>
