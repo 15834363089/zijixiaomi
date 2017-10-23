@@ -123,36 +123,29 @@
 
 //选项卡
 {
-    let text = document.querySelectorAll(".right-1>ul li")
-    let tus = document.querySelectorAll(".jiadian-bottom")
-    console.log(text)
-    console.log(tus)
-
-    text.forEach(function (ele, index) {
-        ele.onclick = function () {
-            for (let i = 0; i < text.length; i++) {
-                // alert(1)
-                text[i].classList.remove("active")
-                // tus.classList.remove("active")
+    let jiadian=document.querySelectorAll(".maichang .jiadian")
+    function fn(a) {
+        let types = a.querySelectorAll(".jiadian-top .right-1 ul li");
+        let inners = a.querySelectorAll(".dianshi ul");
+        types.forEach(function (ele, index) {
+            ele.onmouseover = function () {
+                for (var i = 0; i < types.length; i++) {
+                    types[i].classList.remove('active');
+                    inners[i].style.display = "none";
+                }
+                ele.classList.add('active');
+                inners[index].style.display = "block";
             }
-            ele.classList.add("active")
-            tus[index].classList.add("active")
-        }
-    })
-
-
+        })
+    }
+    for(let i=0;i<jiadian.length;i++){
+        fn(jiadian[i])
+    }
 }
 
 
-
-
-
-
-
-
-
 {
-    let aaa=document.querySelectorAll(".neirong .dada")
+    let aaa = document.querySelectorAll(".neirong .dada")
     function fangfa(a) {
         let dabox = a.querySelector(".da")
         let dians = a.querySelectorAll(".diandian li")
@@ -172,11 +165,11 @@
         zuo.onclick = function () {
             paofn("l");
         }
+
         you.onclick = function () {
             paofn("r");
         }
-
-        function paofn(dir="r") {
+        function paofn(dir = "r") {
             if (dir === "r") {
                 num++;
                 if (num === dians.length) {
@@ -198,7 +191,7 @@
         }
     }
 
-    for(let i=0;i<aaa.length;i++){
+    for (let i = 0; i < aaa.length; i++) {
         fangfa(aaa[i])
         console.log(1)
     }
